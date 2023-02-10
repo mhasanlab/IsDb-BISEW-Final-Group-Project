@@ -1,2 +1,2 @@
-# angular-portfolio-app
-This is a personal portfolio application backed in angular and Google Firebase.
+# Angular Resume  Application
+This is a personal resume or portfolio application backed in angular and Google Firebase.
