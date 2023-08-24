@@ -1,0 +1,110 @@
+
+<div class="row">
+  <div class="col">
+    <h1 class="text-center">Purchase Detail Form</h1>
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+      <input type="hidden" name="id" #id="ngModel" [(ngModel)]="formData.id" />
+      <input type="hidden" name="productId" #productId="ngModel" [(ngModel)]="formData.productId" />
+      <input type="hidden" name="purchaseId" #purchaseId="ngModel" [(ngModel)]="formData.purchaseId" />
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Supplier</label>
+        <div class="col-md-8">
+          <select name="productId" #productId="ngModel" [(ngModel)]="formData.productId" class="form-control">
+            <option value="0">--Select--</option>
+            <option *ngFor="let pro of products" [value]="pro.id">{{pro.productTitle}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Unit Price</label>
+        <div class="col-md-8">
+          <input type="number" name="unitPrice" #unitPrice="ngModel" [(ngModel)]="formData.unitPrice" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Quantity</label>
+        <div class="col-md-8">
+          <input type="number" name="quantity" #quantity="ngModel" [(ngModel)]="formData.quantity" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Vat</label>
+        <div class="col-md-8">
+          <input type="number" name="vat" #vat="ngModel" [(ngModel)]="formData.vat" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Profit</label>
+        <div class="col-md-8">
+          <input name="profit" type="number" #profit="ngModel" [(ngModel)]="formData.profit" class="form-control" />
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Discount</label>
+        <div class="col-md-8">
+          <input type="number" name="discount" #discount="ngModel" [(ngModel)]="formData.discount" class="form-control" />
+        </div>
+
+      </div>
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Sold Quantity</label>
+        <div class="col-md-8">
+          <input name="soldQuantity" type="number" #soldQuantity="ngModel" [(ngModel)]="formData.soldQuantity" class="form-control" />
+        </div>
+
+      </div>
+
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Manufacturing Date</label>
+
+        <div class="col-md-8">
+          <div class="input-group">
+            <input name="manufacturingDate" #manufacturingDate="ngModel" [(ngModel)]="formData.manufacturingDate" [matDatepicker]="picker" class="form-control" />
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="padding:0!important">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Expired Date</label>
+        <div class="col-md-8">
+          <div class="input-group">
+            <input name="expiredDate" #expiredDate="ngModel" [(ngModel)]="formData.expiredDate" [matDatepicker]="epicker" class="form-control" />
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="padding:0!important">
+                <mat-datepicker-toggle matSuffix [for]="epicker"></mat-datepicker-toggle>
+                <mat-datepicker #epicker></mat-datepicker>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label class="col-form-label col-md-2">Is Expirable</label>
+        <div class="col-md-8 mt-2">
+          <input type="checkbox" name="isExpirable" #isExpirable="ngModel" [(ngModel)]="formData.isExpirable" />
+        </div>
+
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-10 text-end">
+          <button type="submit" mat-button class="btn btn-info">Submit</button>
+          <button mat-button [mat-dialog-close]="false" class="ms-1 btn btn-danger">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
